@@ -1,0 +1,14 @@
+{
+  "run_id": "20261019_v1_1_example",
+  "experiment": "B",
+  "positive_path": "/absolute/path/to/historical_positive.csv",
+  "unlabeled_path": "/absolute/path/to/historical_u1.csv",
+  "positive_exclusion_only_path": null,
+  "allow_positive_exclusion_only_for_training": false,
+  "snapshot_time": "2026-10-19T00:00:00+08:00",
+  "reference_date": "2026-10-19",
+  "random_seeds": [42, 123, 2026, 3407, 7],
+  "cv_folds": 5,
+  "holdout_size": 0.2,
+  "lr_repeats": 10
+}
