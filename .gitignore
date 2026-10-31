@@ -1,0 +1,64 @@
+.venv/
+.idea/
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+# Local secrets and credentials. Keep a deliberately named example file if needed.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+credentials*.yaml
+credentials*.yml
+cookies*.json
+*token*.json
+*token*.yaml
+*token*.yml
+
+# Business data, derived data, scores, and reports stay local by default.
+# Raw exports sometimes arrive at the project root before they are registered in
+# a run manifest.  They must remain local and must never be added to Git.
+/V[0-9]_*.csv
+/V[0-9]_*.csv.csv
+/V[0-9]_*.json
+/*_Raw.csv
+/*_Raw.csv.csv
+/*_Raw.json
+data/raw/*
+!data/raw/README.md
+data/processed/*
+data/output/*
+reports/*
+runs/*
+!data/processed/.gitkeep
+!data/output/.gitkeep
+!reports/.gitkeep
+
+# v2_raw_001: enterprise exports and derived datasets stay local.
+# Ignore rules do not protect already tracked files; audit before publishing.
+/data/v2/**
+/reports/v2/**
+*.csv
+*.csv.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.zip
+*.gz
+*.7z
+*.sqlite
+*.db
+
+# Local business documents and ad-hoc publication artifacts.
+/*.docx
+/outputs/
+/work/
