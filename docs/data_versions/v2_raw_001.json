@@ -1,0 +1,111 @@
+{
+  "version": "v2_raw_001",
+  "registered_at": "2026-10-31T14:05:35.794392+08:00",
+  "status": "byte freeze verified; export timestamps and strict historical cutoff pending verification",
+  "row_definition": "CSV logical data records excluding header; U3 uses relaxed quote parsing",
+  "files": [
+    {
+      "dataset": "P_National",
+      "registered_path": "data/v2/raw/V2_P_National_20261020_1200.csv",
+      "bytes": 14770436,
+      "data_rows": 40033,
+      "columns": 27,
+      "logical_records_including_header": 40034,
+      "physical_lines": 40036,
+      "parser": "csv.reader(strict=True), utf-8-sig, newline=\"\"",
+      "strict_error": null,
+      "declared_data_cutoff": "2026-10-20T12:00:00+08:00",
+      "verified_data_cutoff": null,
+      "data_cutoff_status": "待核验：声明快照；不构成严格历史 as-of",
+      "actual_export_time": null,
+      "actual_export_time_status": "待核验：未找到独立导出日志；文件名及 mtime 不作导出时间",
+      "sql_path": "sql/v2/20261020_1200/01_p_national.sql",
+      "identity_status": "已核实与现存 V2 EDA 最终运行输入相同；非新导出",
+      "identity_evidence": [
+        "runs/20261022_v2_eda_1200_04/manifest.json",
+        "docs/V2_EDA_20261020_1200.md",
+        "sql/v2/20261020_1200/README.md"
+      ],
+      "sha256": "5a3ddad69a0c8e4716b6e02a1024f6e32cd7711e56c6f16175a9a901924e354b",
+      "hash_unchanged": true
+    },
+    {
+      "dataset": "U1",
+      "registered_path": "data/v2/raw/V2_U1_20261020_1200.csv",
+      "bytes": 6091751,
+      "data_rows": 18376,
+      "columns": 20,
+      "logical_records_including_header": 18377,
+      "physical_lines": 18377,
+      "parser": "csv.reader(strict=True), utf-8-sig, newline=\"\"",
+      "strict_error": null,
+      "declared_data_cutoff": "2026-10-20T12:00:00+08:00",
+      "verified_data_cutoff": null,
+      "data_cutoff_status": "待核验：声明快照；不构成严格历史 as-of",
+      "actual_export_time": null,
+      "actual_export_time_status": "待核验：未找到独立导出日志；文件名及 mtime 不作导出时间",
+      "sql_path": "sql/v2/20261020_1200/02_u1_sh_sz_welfare.sql",
+      "identity_status": "已核实与现存 V2 EDA 最终运行输入相同；非新导出",
+      "identity_evidence": [
+        "runs/20261022_v2_eda_1200_04/manifest.json",
+        "docs/V2_EDA_20261020_1200.md",
+        "sql/v2/20261020_1200/README.md"
+      ],
+      "sha256": "612c5d07aae7ce1898d5d9a09ca6e8a402026c37e4108c200dd817c7331168de",
+      "hash_unchanged": true
+    },
+    {
+      "dataset": "U2",
+      "registered_path": "data/v2/raw/V2_U2_20261020_1200.csv",
+      "bytes": 15033492,
+      "data_rows": 45079,
+      "columns": 20,
+      "logical_records_including_header": 45080,
+      "physical_lines": 45080,
+      "parser": "csv.reader(strict=True), utf-8-sig, newline=\"\"",
+      "strict_error": null,
+      "declared_data_cutoff": "2026-10-20T12:00:00+08:00",
+      "verified_data_cutoff": null,
+      "data_cutoff_status": "待核验：声明快照；不构成严格历史 as-of",
+      "actual_export_time": null,
+      "actual_export_time_status": "待核验：未找到独立导出日志；文件名及 mtime 不作导出时间",
+      "sql_path": "sql/v2/20261020_1200/03_u2_national_welfare.sql",
+      "identity_status": "已核实与现存 V2 EDA 最终运行输入相同；非新导出",
+      "identity_evidence": [
+        "runs/20261022_v2_eda_1200_04/manifest.json",
+        "docs/V2_EDA_20261020_1200.md",
+        "sql/v2/20261020_1200/README.md"
+      ],
+      "sha256": "2a7aabfea3567c50abe92c3a92d6c890f8bbbb7fc3b5b074e53df177b1401d95",
+      "hash_unchanged": true
+    },
+    {
+      "dataset": "U3",
+      "registered_path": "data/v2/raw/V2_U3_20261020_1200.csv",
+      "bytes": 53396368,
+      "data_rows": 167579,
+      "columns": 20,
+      "logical_records_including_header": 167580,
+      "physical_lines": 167580,
+      "parser": "csv.reader(strict=False), utf-8-sig, newline=\"\"; no skipped records",
+      "strict_error": {
+        "physical_line": 117140,
+        "message": "',' expected after '\"'"
+      },
+      "declared_data_cutoff": "2026-10-20T12:00:00+08:00",
+      "verified_data_cutoff": null,
+      "data_cutoff_status": "待核验：声明快照；不构成严格历史 as-of",
+      "actual_export_time": null,
+      "actual_export_time_status": "待核验：未找到独立导出日志；文件名及 mtime 不作导出时间",
+      "sql_path": "sql/v2/20261020_1200/04_u3_national_all.sql",
+      "identity_status": "已核实与现存 V2 EDA 最终运行输入相同；非新导出",
+      "identity_evidence": [
+        "runs/20261022_v2_eda_1200_04/manifest.json",
+        "docs/V2_EDA_20261020_1200.md",
+        "sql/v2/20261020_1200/README.md"
+      ],
+      "sha256": "089a067c3205a287e174a9db8cf3ee22d1f186b5b1c8283f74d6dc5968f4c548",
+      "hash_unchanged": true
+    }
+  ]
+}
