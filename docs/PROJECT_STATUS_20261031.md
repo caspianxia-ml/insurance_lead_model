@@ -51,3 +51,7 @@ python3 -m experiments.v2_local_v1_baseline --run-id <unused-run-id> --p data/v2
 ```
 
 GitHub 不附带业务数据，因此克隆仓库后不能直接复现企业级结果；可运行合成测试，并将已有汇总与登记哈希核对。
+
+## 公开发布边界
+
+按用户选择，`sql/v2/20261020_1200/` 的四份 SQL、README.md 和 source_paste.txt 六份文件不公开。公开登记中引用的 SQL 路径是本地证据位置。其余 50 个公开文件经网页上传并按路径与 Git blob 哈希核对；企业数据和逐企业结果继续留在本地。
