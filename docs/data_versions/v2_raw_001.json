@@ -107,5 +107,7 @@
       "sha256": "089a067c3205a287e174a9db8cf3ee22d1f186b5b1c8283f74d6dc5968f4c548",
       "hash_unchanged": true
     }
-  ]
+  ],
+  "sql_files_published": false,
+  "sql_path_scope": "local evidence paths only; six extraction SQL/source files withheld by user"
 }
