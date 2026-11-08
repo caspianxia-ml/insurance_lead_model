@@ -62,3 +62,12 @@ runs/*
 /*.docx
 /outputs/
 /work/
+
+# Local-only evidence and complete handoff folders.
+/sql/v2/20261020_1200/
+/sources/
+*.npz
+*.npy
+*.joblib
+*.tar
+*.bundle

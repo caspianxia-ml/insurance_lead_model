@@ -1,5 +1,77 @@
 # insurance_lead_model
 
+## 2026-11-07 GitHub续传
+
+本次接续原main的50个文件与16条提交，增加E02–E06、原冻结数据验收工具、行业统一及头部名单诊断代码与聚合报告。完整项目和业务数据已另存本地交接目录；公开仓库继续保留既定发布范围。
+
+克隆后可运行 `python -m unittest discover -s tests -v` 和 `python experiments/v2.py verify --source-only`，无需企业数据。`verify`、训练及企业级结果复核需要本地授权的冻结数据和运行归档；GitHub不提供这些文件。公开版来源登记使用PROJECT_ROOT／WORKSPACE占位，本地完整项目保留原登记和原锁定哈希。
+
+
+## V2 开发收尾已完成（2026-11-07）
+
+已按用户确认完成行业标准合并及逐项追溯，补齐头部画像、每折固定Top100/500/1000与跨种子稳定性，并统一E02–E06复跑和本地归档入口。本轮没有新训练；621家最终Gold仍封存，E07等待业务核验。新行业字段已另存，尚未检验其模型效果。
+
+- [当前进度](docs/PROJECT_STATUS_20261107.md)
+- [行业统一结果](docs/V2_INDUSTRY_STANDARDIZATION_20261107.md)
+- [头部名单诊断](docs/V2_HEAD_DIAGNOSTICS_20261107.md)
+- [统一入口与恢复说明](docs/V2_REPRODUCTION_RUNBOOK_20261107.md)
+- [当前数据约定](docs/V2_DATA_CONTRACT_20261107.md)
+
+统一入口：`.venv/bin/python experiments/v2.py status`；公开代码核验：`.venv/bin/python experiments/v2.py verify --source-only`。
+
+## E06 线性 nnPU 开发对照已完成（2026-11-07）
+
+固定F0五类画像和原Gold五折/逐次U抽样，完成3,000次线性nnPU＋300次U3 LR；U2精确复用E05 F0的30份集成评分。四项数值测试与11,348项独立核验通过。五个先验情景下，未显示足以稳定替换LR的增益；扩展U3混合路线有小幅改善，但先验敏感，1%/40%前100仅重合10家。先验情景不是估计或置信边界，两条正例路线继续保留，不选定真实先验或总体业务模型。621家最终Gold留出未使用；下一项E07尚未执行。
+
+- [E06 结论、先验敏感性与完整报告](docs/E06_NNPU_PRIOR_RESULTS_20261107.md)
+- [最新进度](docs/PROJECT_STATUS_20261107.md)
+- [E06 代码与复现入口](experiments/e06_nnpu_prior/README.md)
+
+
+## E05 特征消融开发对照已完成（2026-11-07）
+
+固定 E02 全国 P/U2 和逐次 U 抽样，九个新增特征方案、两条路线完成 2,700 次拟合；B0 复用旧评分，4 项测试和 4,656 项独立核验通过。规模、实缴和年份没有跨路线明显稳定的正增益，地区/简介方向依赖路线。行业门类/中类提高前10% Gold 找回率约 26.70/18.63 个百分点，但字段层级和缺失不一致，仅保留为诊断，暂不升主模型。621 家最终 Gold 留出未使用。E06 已随后完成，见上方最新进度。
+
+- [E05 结论、字段风险与完整报告](docs/E05_FEATURE_ABLATION_RESULTS_20261107.md)
+- [最新进度](docs/PROJECT_STATUS_20261107.md)
+- [E05 代码与复现入口](experiments/e05_feature_ablation/README.md)
+
+## E04 U 范围开发对照已完成（2026-11-07）
+
+固定全国 P，U2/U3 × Gold-only/Gold+Silver 四组开发比较完成：600 次拟合，4 项针对性测试及 1,771 项独立核验通过；U2 控制组与 E02 评分完全一致。固定 U2 主面板的 Top 10%/20% 中，U3 减 U2：Gold-only −10.10/−7.53、混合 −7.96/−5.62 个百分点；固定扩展面板内分别 +3.56/+10.17、+9.31/+12.59。比较方向依赖评价范围，不跨面板直接比较原始捕获率，不以同来源 Gold 结果选定总体业务模型。621 家最终 Gold 留出未评分。E05 已随后完成，见上方最新进度。
+
+- [E04 结果报告](docs/E04_U_SCOPE_RESULTS_20261107.md)
+- [最新进度](docs/PROJECT_STATUS_20261107.md)
+- [E04 代码与复现入口](experiments/e04_unlabeled_scope/README.md)
+
+## E03 正例地域范围开发对照已完成（2026-11-07）
+
+沪苏/全国 × Gold-only/Gold+Silver 四组已完成 600 次拟合与 1,386 项独立核验。全国减沪苏：Gold-only Top 10%/20% 为 −2.61/−2.32 个百分点，混合路线 −0.66/−0.69；最前 1% 则分别提高约 1.78/1.66 个百分点。结果依赖截断位置，仅作当前沪苏 Gold 来源内策略比较，不确定目标 U 总体业务优劣。621 家最终留出 Gold 未评分。E04 已随后完成，见上方最新进度。
+
+- [E03 结果报告](docs/E03_P_SCOPE_RESULTS_20261107.md)
+- [最新进度](docs/PROJECT_STATUS_20261107.md)
+- [E03 执行代码](experiments/e03_positive_scope/README.md)
+
+
+## E02 开发对照已完成（2026-11-07）
+
+Gold-only 的开发 Gold Top 10%/20% 捕获率为 52.6%/68.6%；等权全量加入 Silver 为 48.7%/62.1%。300 次拟合正常收敛，878 项独立核验通过。621 家最终 Gold 留出没有被评分；解释修订：当前结果仅表明 Gold-only 在 Gold 来源内评价更高，不能据此确定目标总体模型；两组候选均保留。
+
+- [结果报告](docs/E02_GOLD_SILVER_RESULTS_20261107.md)
+- [E02 结论与来源偏差解释修订](docs/E02_INTERPRETATION_REVISION_20261107.md)
+- [当前进度](docs/PROJECT_STATUS_20261107.md)
+- [执行代码与复现入口](experiments/e02_gold_silver/README.md)
+
+
+## V2 当前计划与决定（2026-11-06）
+
+V1.1 四模型与验证结果保留为已完成的历史基准；E01 独立复现暂缓，不作为 V2 前置任务。E02 Gold-only 与 Gold+Silver 的开发主对照已于 2026-11-07 完成，最终 Gold 留出未评分。
+
+- [完整实验计划](docs/V2_EXPERIMENT_PLAN_20261106.md)
+- [当前决定与进度](docs/V2_CURRENT_DECISIONS_20261106.md)
+- [V1.1 与当前数据差异核查](docs/V1_1_V2_DATA_COMPARISON_20261106.md)
+
+
 ## 当前状态（2026-10-31）
 
 已有 V1/V1.1、V2 四组 EDA 和新沪苏 P＋U1 四模型结果，入口见 [项目状态与汇总结果](docs/PROJECT_STATUS_20261031.md)。原始数据已登记为 [v2_raw_001](docs/data_versions/v2_raw_001.json)，原件和归档副本 SHA-256 一致；实际导出时间和严格历史快照仍待核验。
@@ -38,10 +110,10 @@ python3 -m experiments.v1_1_new_p_d --run-id <unused-D-run-id> --new-p '/absolut
 优先按下方命令传入实际文件，不要使用旧 Leads U。原始 CSV 保持只读。
 
 ```bash
-python main.py --step check --positive '/Users/mima0000/Downloads/P样本v1.csv' --unlabeled '/Users/mima0000/Downloads/u1.csv'
-python main.py --step eda --positive '/Users/mima0000/Downloads/P样本v1.csv' --unlabeled '/Users/mima0000/Downloads/u1.csv'
-python main.py --step features --positive '/Users/mima0000/Downloads/P样本v1.csv' --unlabeled '/Users/mima0000/Downloads/u1.csv'
-python main.py --step baseline --sensitivity --positive '/Users/mima0000/Downloads/P样本v1.csv' --unlabeled '/Users/mima0000/Downloads/u1.csv'
+python main.py --step check --positive '/absolute/path/P样本v1.csv' --unlabeled '/absolute/path/u1.csv'
+python main.py --step eda --positive '/absolute/path/P样本v1.csv' --unlabeled '/absolute/path/u1.csv'
+python main.py --step features --positive '/absolute/path/P样本v1.csv' --unlabeled '/absolute/path/u1.csv'
+python main.py --step baseline --sensitivity --positive '/absolute/path/P样本v1.csv' --unlabeled '/absolute/path/u1.csv'
 ```
 
 所有入口先做实体清洗。P 按实体留出 20%；U 按画像分层取 40% 训练池，
