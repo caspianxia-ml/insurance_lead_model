@@ -1,0 +1,26 @@
+{
+  "__init__.py": {
+    "source": "PROJECT_ROOT/src/__init__.py",
+    "sha256": "6a8960340603df434a0082d7f02133cf30834ad11f1854d26b21d7b8e2ff03f6"
+  },
+  "config.py": {
+    "source": "PROJECT_ROOT/src/config.py",
+    "sha256": "89356acb9bddf4f27e56e5ca8b0765a51c8cf03ade631af0c592473f75272d86"
+  },
+  "data_cleaning.py": {
+    "source": "PROJECT_ROOT/src/data_cleaning.py",
+    "sha256": "3604ab9991b26902cf16991892fd59785052334ab187e69dd4cb53f000b6e7a6"
+  },
+  "feature_engineering.py": {
+    "source": "PROJECT_ROOT/src/feature_engineering.py",
+    "sha256": "d4aebb70c4b5eb71b494740ad026e2e7f686000f7f6ad98f439ff04affe91ab8"
+  },
+  "preprocessing.py": {
+    "source": "PROJECT_ROOT/src/preprocessing.py",
+    "sha256": "4505345f0ea4e8bd7f9bd3612e43957ce7323d5071732d34eabb331a6294290b"
+  },
+  "model_logistic_baseline.py": {
+    "source": "PROJECT_ROOT/src/model_logistic_baseline.py",
+    "sha256": "0dc8d811bec4bc661aa478152be21a26d6dfee1afdcee663508abaab5bfca278"
+  }
+}
