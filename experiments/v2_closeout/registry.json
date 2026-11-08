@@ -1,0 +1,124 @@
+{
+  "version": "V2_development_closeout_20261107",
+  "raw_version": "v2_raw_001",
+  "acceptance": "runs/20261106_V2_acceptance_01",
+  "closeout": "runs/20261107_V2_closeout_01",
+  "E01": "deferred_by_user",
+  "E07": "waiting_for_business_verification",
+  "frozen_cutoff": "declared 2026-10-20 12:00; strict as-of/export time not independently established",
+  "Gold": {
+    "development": 2484,
+    "final_holdout": 621,
+    "final_holdout_scored": false
+  },
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "folds": 5,
+  "U_draws_per_fold_seed": 10,
+  "industry_policy": "Standard reference merge; category -> major -> medium, first valid classification wins conflicts; unknown retained. Separate derivative, not yet tested as a model feature.",
+  "experiments": {
+    "E02": {
+      "status": "development_complete",
+      "topic": "positive composition",
+      "code": "experiments/e02_gold_silver",
+      "archive": "runs/20261107_E02_Gold_vs_Silver_01",
+      "train_script": "e02.py",
+      "report_script": "report_e02.py",
+      "formal_run": "runs/main_001",
+      "formal_report": "reports/main_001",
+      "new_fits": 300,
+      "features": "B0 eight usable fields",
+      "routes": [
+        "Gold_only",
+        "Gold_Silver"
+      ],
+      "U_scope": "U2",
+      "interpretation": "Compare within identical panel only. Gold-source capture is not U population precision."
+    },
+    "E03": {
+      "status": "development_complete",
+      "topic": "positive geography",
+      "code": "experiments/e03_positive_scope",
+      "archive": "runs/20261107_E03_P_scope_01",
+      "train_script": "e03.py",
+      "report_script": "report_e03.py",
+      "formal_run": "runs/main_001",
+      "formal_report": "reports/main_001",
+      "new_fits": 600,
+      "features": "B0 eight usable fields",
+      "routes": [
+        "Gold_only",
+        "Gold_Silver"
+      ],
+      "U_scope": "fixed U1 evaluation",
+      "interpretation": "Compare within identical panel only. Gold-source capture is not U population precision."
+    },
+    "E04": {
+      "status": "development_complete",
+      "topic": "unlabeled scope",
+      "code": "experiments/e04_unlabeled_scope",
+      "archive": "runs/20261107_E04_U_scope_01",
+      "train_script": "e04.py",
+      "report_script": "report_e04.py",
+      "formal_run": "runs/main_001",
+      "formal_report": "reports/main_001",
+      "new_fits": 600,
+      "features": "B0 eight usable fields",
+      "routes": [
+        "Gold_only",
+        "Gold_Silver"
+      ],
+      "U_scope": "U2 vs U3",
+      "interpretation": "Compare within identical panel only. Gold-source capture is not U population precision."
+    },
+    "E05": {
+      "status": "development_complete",
+      "topic": "feature ablation",
+      "code": "experiments/e05_feature_ablation",
+      "archive": "runs/20261107_E05_feature_ablation_01",
+      "train_script": "e05.py",
+      "report_script": "report_e05.py",
+      "formal_run": "runs/main_001",
+      "formal_report": "reports/main_002",
+      "new_fits": 2700,
+      "features": "B0 and nine feature variants",
+      "routes": [
+        "Gold_only",
+        "Gold_Silver"
+      ],
+      "U_scope": "U2",
+      "interpretation": "Compare within identical panel only. Gold-source capture is not U population precision."
+    },
+    "E06": {
+      "status": "development_complete",
+      "topic": "linear nnPU and prior stress",
+      "code": "experiments/e06_nnpu_prior",
+      "archive": "runs/20261107_E06_nnpu_prior_01",
+      "train_script": "e06.py",
+      "report_script": "report_e06.py",
+      "formal_run": "runs/main_002",
+      "formal_report": "reports/main_001",
+      "new_fits": 3300,
+      "features": "F0 five profile fields",
+      "routes": [
+        "Gold_only",
+        "Gold_Silver"
+      ],
+      "U_scope": "U2 vs U3",
+      "interpretation": "Compare within identical panel only. Gold-source capture is not U population precision."
+    }
+  },
+  "limitations": [
+    "No selected final business model or calibrated welfare probability",
+    "U2 evaluation 11274 and expanded U3 evaluation 74936; candidate lists are development subsets",
+    "Local backup is on the same machine; no remote push"
+  ],
+  "closeout_formal": {
+    "audit": "analysis_002",
+    "standardized_industry": "industry_standardized_003",
+    "verification": "verification_002"
+  }
+}
